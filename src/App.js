@@ -57,7 +57,7 @@ function App() {
             rain = 0,
             pressure = res.data.main.pressure,
             humidity = res.data.main.humidity,
-            img = res.data.weather.icon
+            img = res.data.weather[0].icon
           ]
           updateWeatherValues(newWeatherValues);
         }
