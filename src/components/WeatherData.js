@@ -15,16 +15,19 @@ const WeatherData = (props) => {
                         {props.weatherValues[1]===undefined ? "-" : props.weatherValues[1]}, {props.weatherValues[2]===undefined ? "-" : props.weatherValues[2]}
                     </div>
                 </div>
-
-                <div className="weather-img"> <img src={`http://openweathermap.org/img/wn/${props.weatherValues[7]}@2x.png`}></img> </div>
+                <div className="right-col">
+                    <div className="weather-img"> <img src={`http://openweathermap.org/img/wn/${props.weatherValues[7]}@2x.png`}></img> </div>
+                    <p> {props.weatherValues[8]}</p>
+                </div>
+                
             </div>
             <div className="container-bottom">
                 <div className="data-item">
-                    <p>{props.weatherValues[3]===undefined ? "-" : Math.round(props.weatherValues[3])+" km/h"} </p>
+                    <p>{props.weatherValues[3]===undefined ? "-" : Math.round(props.weatherValues[3])+" kt"} </p>
                     <h1>Wind</h1>
                 </div>
                 <div className="data-item">
-                    <p>{props.weatherValues[4]===undefined ? "-" : props.weatherValues[4]+" %"} </p>
+                    <p>{props.weatherValues[4]===undefined ? "-" : props.weatherValues[4]+" mm"} </p>
                     <h1>Rain</h1>
                 </div>
                 <div className="data-item">

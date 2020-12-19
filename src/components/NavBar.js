@@ -5,6 +5,7 @@ const NavBar = () => {
     return(
         <div className="navbar">
             <h1 className="logo">JWeather</h1>
+            
         </div>
     );
 };

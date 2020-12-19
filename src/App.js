@@ -17,7 +17,7 @@ function App() {
   let pressure = 0;
   let humidity = 0;
   let img = '';
-
+  let desc = '';
 
   const [coords, updateCoords] = useState([coordLat, coordLong]);
 
@@ -29,8 +29,11 @@ function App() {
     rain = 0,
     pressure = 0,
     humidity = 0,
-    img = ''
-  )
+    img = '',
+    desc = ''
+  );
+
+  const [searchQuery, updateSearchQuery] = useState('');
 
   useEffect(() => getLocationInfo(), []);
   
@@ -54,10 +57,11 @@ function App() {
             city = res.data.name,
             country = res.data.sys.country,
             wind = res.data.wind.speed,
-            rain = 0,
+            rain = res.data.rain,
             pressure = res.data.main.pressure,
             humidity = res.data.main.humidity,
-            img = res.data.weather[0].icon
+            img = res.data.weather[0].icon,
+            desc = res.data.weather[0].description
           ]
           updateWeatherValues(newWeatherValues);
         }
@@ -69,6 +73,27 @@ function App() {
     }
   }
 
+  const searchboxHandler = (e) => {
+    console.log("BUSCA? " + searchQuery);
+    e.preventDefault();
+    Axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=metric&appid=9a1a834849335352ddd99f2f95f6ae9d`).then(
+        res => {
+          console.log(res);
+          let newWeatherValues = [
+            temp = res.data.main.temp,
+            city = res.data.name,
+            country = res.data.sys.country,
+            wind = res.data.wind.speed,
+            rain = 0,
+            pressure = res.data.main.pressure,
+            humidity = res.data.main.humidity,
+            img = res.data.weather[0].icon,
+            desc = res.data.weather[0].description
+          ]
+          updateWeatherValues(newWeatherValues);
+          updateSearchQuery('');
+        }
+      )}
   
 
   return (
@@ -76,6 +101,9 @@ function App() {
       <NavBar />
       <div className="content-wrapper">
         <WeatherData weatherValues={weatherValues} />
+        <form onSubmit={e => searchboxHandler(e)} onChange={e => updateSearchQuery(e.target.value)}>
+          <input type="text" name="search" className="searchbox" value={searchQuery} placeholder="Find your city"></input>
+        </form>
       </div>
     </div>
   );
