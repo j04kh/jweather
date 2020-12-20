@@ -1,41 +1,38 @@
 import React from 'react';
 
 const WeatherData = (props) => {
-
-    // Conditional operator '?' to show a '-' if the data is not loaded, instead of showing 'NaN' or something like that
-
     return(
         <div className="main-container">
             <div className="container-up">
                 <div className="col-left">
                     <div className="temp"> 
-                      {props.weatherValues[0]===undefined ? "-" : Math.round(props.weatherValues[0])+"ºC"}
+                      {props.weatherValues && Math.round(props.weatherValues.temp) + "ºC"}
                     </div>
                     <div className="location">
-                        {props.weatherValues[1]===undefined ? "-" : props.weatherValues[1]}, {props.weatherValues[2]===undefined ? "-" : props.weatherValues[2]}
+                        {props.weatherValues && props.weatherValues.city}, {props.weatherValues && props.weatherValues.country}
                     </div>
                 </div>
                 <div className="right-col">
-                    <div className="weather-img"> <img src={`http://openweathermap.org/img/wn/${props.weatherValues[7]}@2x.png`}></img> </div>
-                    <p> {props.weatherValues[8]}</p>
+                    <div className="weather-img"> <img src={`http://openweathermap.org/img/wn/${props.weatherValues.img}@2x.png`} alt="weather-description-icon" /></div>
+                    <p> {props.weatherValues.desc}</p>
                 </div>
                 
             </div>
             <div className="container-bottom">
                 <div className="data-item">
-                    <p>{props.weatherValues[3]===undefined ? "-" : Math.round(props.weatherValues[3])+" kt"} </p>
+                    <p>{props.weatherValues && Math.round(props.weatherValues.wind) + " kt"} </p>
                     <h1>Wind</h1>
                 </div>
                 <div className="data-item">
-                    <p>{props.weatherValues[4]===undefined ? "-" : props.weatherValues[4]+" mm"} </p>
+                    <p>{props.weatherValues[4]===undefined ? "-" : props.weatherValues.rain + " mm"} </p>
                     <h1>Rain</h1>
                 </div>
                 <div className="data-item">
-                    <p> {props.weatherValues[5]===undefined ? "-" : props.weatherValues[5]+" hpa"}</p>
+                    <p> {props.weatherValues && props.weatherValues.pressure + " hpa"}</p>
                     <h1>Pressure</h1>
                 </div>
                 <div className="data-item">
-                    <p>{props.weatherValues[6]===undefined ? "-" : props.weatherValues[6]+" %"}</p>
+                    <p>{props.weatherValues && props.weatherValues.humidity + " %"}</p>
                     <h1>Humidity</h1>
                 </div>
             </div>

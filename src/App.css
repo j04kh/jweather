@@ -5,7 +5,7 @@
 }
 
 body{
-  background-image: url("./assets/background.jpg");
+  background-image: url("./assets/background-2k.jpg");
   background-size: cover;
   background-repeat: none;
 }
@@ -125,7 +125,7 @@ body{
 .form-container{
   position: absolute;
   left: 50%;
-  bottom: 15%;
+  bottom: 120px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: row;
@@ -141,15 +141,12 @@ body{
   border-bottom: 1px solid rgb(255, 255, 255);
   padding-left: 5px;
   color: rgba(255, 255, 255, 0.671);
+  outline: none;
 }
 
 .searchbox::placeholder{
   letter-spacing: 1px;
   font-style: italic;
-}
-
-.searchbox:active .searchbox::selection .searchbox:focus { 
-  border-style: none;
 }
 
 .btn{
@@ -169,6 +166,13 @@ body{
 
 /*Media query for tablets (portrait)*/
 @media (max-width: 1024px) {
+
+  body{
+    background-image: url("./assets/background-mobile.jpg");
+    background-size: cover;
+    background-repeat: none;
+  }
+
   .main-container{
     width: 500px;
   }
@@ -185,9 +189,15 @@ body{
 /*Media query for mobile (portrait)*/
 @media (max-width: 560px) {
 
+  body{
+    background-image: url("./assets/background-mobile.jpg");
+    background-size: cover;
+    background-repeat: none;
+  }
+
   .main-container{
     width: 300px;
-    height: 400px
+    height: 350px
   }
 
   .location{
@@ -215,7 +225,7 @@ body{
 
   .container-bottom{
     width: 280px;
-    height: 130px;
+    height: 110px;
     top: 0px;
   }
 
@@ -239,5 +249,9 @@ body{
     position: absolute;
     bottom: 10%;
     cursor: pointer;
+  }
+
+  .form-container{
+    bottom: 80px;
   }
 }
