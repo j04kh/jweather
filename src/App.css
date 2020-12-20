@@ -145,6 +145,11 @@ body{
   border-style: none;
 }
 
+.btn #search-icon{
+  display: none;
+  cursor: none;
+}
+
 /*Media query for tablets (portrait)*/
 @media (max-width: 1024px) {
   .main-container{
@@ -165,11 +170,11 @@ body{
 
   .main-container{
     width: 300px;
-    height: 450px
+    height: 400px
   }
 
   .location{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .right-col{
@@ -177,17 +182,46 @@ body{
     height: 100px;
   }
 
+  .weather-img{
+    height: 80px;
+  }
+
   .right-col p {
-    font-size: 1rem;
+    font-size: 0.85rem;
     text-align: center;
   }
 
   .container-up{
     width: 280px;
+    height: 150px;
   }
 
   .container-bottom{
     width: 280px;
-    height: 180px;
+    height: 130px;
+    top: 0px;
+  }
+
+  .container-bottom h1 {
+    font-size: 0.8rem;
+  }
+
+  .searchbox {
+    bottom: 10%;
+    width: 180px;
+  }
+
+  .btn{
+    background-color: transparent;
+    border: none;
+  }
+
+  #search-icon{
+    background-color: transparent;
+    height: 20px;
+    position: absolute;
+    bottom: 10%;
+    right: 18%;
+    cursor: pointer;
   }
 }
