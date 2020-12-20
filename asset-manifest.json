@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/jweather/static/css/main.ceadffce.chunk.css",
+    "main.css": "/jweather/static/css/main.b346fcdd.chunk.css",
     "main.js": "/jweather/static/js/main.a09060f8.chunk.js",
     "main.js.map": "/jweather/static/js/main.a09060f8.chunk.js.map",
     "runtime-main.js": "/jweather/static/js/runtime-main.3a2860f5.js",
@@ -8,14 +8,14 @@
     "static/js/2.7c6fe728.chunk.js": "/jweather/static/js/2.7c6fe728.chunk.js",
     "static/js/2.7c6fe728.chunk.js.map": "/jweather/static/js/2.7c6fe728.chunk.js.map",
     "index.html": "/jweather/index.html",
-    "static/css/main.ceadffce.chunk.css.map": "/jweather/static/css/main.ceadffce.chunk.css.map",
+    "static/css/main.b346fcdd.chunk.css.map": "/jweather/static/css/main.b346fcdd.chunk.css.map",
     "static/js/2.7c6fe728.chunk.js.LICENSE.txt": "/jweather/static/js/2.7c6fe728.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/jweather/static/media/background.4a67b51c.jpg"
+    "static/media/App.css": "/jweather/static/media/background-mobile.ea445b77.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3a2860f5.js",
     "static/js/2.7c6fe728.chunk.js",
-    "static/css/main.ceadffce.chunk.css",
+    "static/css/main.b346fcdd.chunk.css",
     "static/js/main.a09060f8.chunk.js"
   ]
 }
