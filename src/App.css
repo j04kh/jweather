@@ -122,11 +122,18 @@ body{
   color: white;
 }
 
-.searchbox{
+.form-container{
   position: absolute;
   left: 50%;
   bottom: 15%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.searchbox{
+  position: relative;
   width: 220px;
   height: 30px;
   border-style: none;
@@ -145,10 +152,20 @@ body{
   border-style: none;
 }
 
-.btn #search-icon{
-  display: none;
-  cursor: none;
+.btn{
+  background-color: transparent;
+  border: none;
 }
+
+#search-icon{
+  position: relative;
+  background-color: transparent;
+  height: 20px;
+  bottom: 3px;
+  position: absolute;
+  cursor: pointer;
+}
+
 
 /*Media query for tablets (portrait)*/
 @media (max-width: 1024px) {
@@ -221,7 +238,6 @@ body{
     height: 20px;
     position: absolute;
     bottom: 10%;
-    right: 18%;
     cursor: pointer;
   }
 }

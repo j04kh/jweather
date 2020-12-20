@@ -84,7 +84,7 @@ function App() {
       <NavBar />
       <div className="content-wrapper">
         <WeatherData weatherValues={weatherValues} />
-        <form onSubmit={e => searchboxHandler(e)} onChange={e => updateSearchQuery(e.target.value)}>
+        <form className="form-container" onSubmit={e => searchboxHandler(e)} onChange={e => updateSearchQuery(e.target.value)}>
           <input type="text" name="search" className="searchbox" value={searchQuery} placeholder="Find your city"></input>
           <button type="submit" className="btn"><img id="search-icon" src={Search}></img></button>
         </form>
