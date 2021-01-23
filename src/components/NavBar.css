@@ -36,11 +36,52 @@
     transform: translateY(-50%);
 }
 
-.hamb-line{
+.hamb-line1{
+    position: relative;
     height: 3px;
     width: 100%;
     position: relative;
     background-color: white;
+    transform: rotate(0deg);
+    transition: 0.5s ease-out;
+}
+
+.hamb-line2{
+    height: 3px;
+    width: 100%;
+    position: relative;
+    background-color: white;
+    transition: 0.5s ease-out;
+}
+
+.hamb-line3{
+    position: relative;
+    height: 3px;
+    width: 100%;
+    position: relative;
+    background-color: white;
+    transition: 0.5s ease-out;
+}
+
+.hamb-line-open1{
+    height: 3px;
+    width: 60%;
+    background-color: white;
+    transform: translateY(3px) rotate(40deg);
+    transition: 0.5s ease-out;
+}
+
+.hamb-line-open2{
+    opacity: 0;
+    transition: 0.5s ease-out;
+}
+
+.hamb-line-open3{
+    height: 3px;
+    width: 60%;
+    background-color: white;
+    transform: translateY(-3px) rotate(-40deg) ;
+    transition: 0.5s ease-out;
 }
 
 /*Media query for mobile (portrait)*/

@@ -22,7 +22,7 @@ body{
   display: flexbox;
   flex-direction: column;
   height: 400px;
-  width: 750px;
+  width: 700px;
   border-radius: 10px 10px 10px 10px;
   position: absolute;
   top: 50%;
@@ -80,12 +80,26 @@ body{
   width: 130px;
   position: absolute;
   align-self: center;
+  justify-content: center;
+  align-content: center;
   right: 5%;
   top: 18%;
 }
 
+.weather-img{
+  display: flex;
+  position: relative;
+  align-self: center;
+  justify-content: center;
+}
+
+.img-desc{
+  
+}
+
 .right-col p {
   color: white;
+  text-align: center;
 }
 
 .right-col p::first-letter{
@@ -210,13 +224,15 @@ body{
     height: 100px;
   }
 
-  .weather-img{
-    height: 80px;
-  }
-
   .right-col p {
     font-size: 0.85rem;
     text-align: center;
+  }
+
+  .img-desc{
+    position: relative;
+    height: 80%;
+    width: 80%;
   }
 
   .container-up{
