@@ -1,6 +1,6 @@
 # JWeather
 
-A weather application built with React and CSS.
+A weather application built with React and Sass.
 
 
 ### About the project 
@@ -11,7 +11,7 @@ You can view a live demo over at https://j04kh.github.io/jweather
 
 ### Instructions 
 
-To run this project locally, clone down this repository. You will need `npm` installed on your machine.
+To run this project locally, clone down this repository. You will need `node` and `npm` installed on your machine.
 
 Installation:
 
