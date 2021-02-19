@@ -4,24 +4,21 @@
 }
 
 .navbar{
-    top: 0;
-    left: 0;
     background: linear-gradient( to right, #000000, #001027);
     opacity: 0.85;
     width: 100vw;
     height: 60px;
     padding-left: 20px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
 .logo{
     color: white;
     position: relative;
-    font-size: 1rem;
     font-weight: 400;
     align-self: center;
+    font-size: 1.2rem;
 }
 
 .hamburger-icon{
@@ -37,30 +34,19 @@
 }
 
 .hamb-line1{
-    position: relative;
     height: 3px;
     width: 100%;
     position: relative;
     background-color: white;
-    transform: rotate(0deg);
     transition: 0.5s ease-out;
 }
 
 .hamb-line2{
-    height: 3px;
-    width: 100%;
-    position: relative;
-    background-color: white;
-    transition: 0.5s ease-out;
+    @extend .hamb-line1;
 }
 
 .hamb-line3{
-    position: relative;
-    height: 3px;
-    width: 100%;
-    position: relative;
-    background-color: white;
-    transition: 0.5s ease-out;
+    @extend .hamb-line1;
 }
 
 .hamb-line-open1{
@@ -77,11 +63,9 @@
 }
 
 .hamb-line-open3{
-    height: 3px;
-    width: 60%;
-    background-color: white;
+    @extend .hamb-line-open1;
     transform: translateY(-3px) rotate(-40deg) ;
-    transition: 0.5s ease-out;
+    
 }
 
 /*Media query for mobile (portrait)*/

@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background: -webkit-gradient(linear, left top, right top, from(#000000), to(#001027));
+  background: linear-gradient(to right, #000000, #001027);
+  opacity: 0.85;
+  width: 100vw;
+  height: 60px;
+  padding-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.logo {
+  color: white;
+  position: relative;
+  font-weight: 400;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1.2rem;
+}
+
+.hamburger-icon {
+  height: 28px;
+  width: 28px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  top: 50%;
+  right: 1%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.hamb-line1, .hamb-line2, .hamb-line3 {
+  height: 3px;
+  width: 100%;
+  position: relative;
+  background-color: white;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+.hamb-line-open1, .hamb-line-open3 {
+  height: 3px;
+  width: 60%;
+  background-color: white;
+  -webkit-transform: translateY(3px) rotate(40deg);
+          transform: translateY(3px) rotate(40deg);
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+.hamb-line-open2 {
+  opacity: 0;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+.hamb-line-open3 {
+  -webkit-transform: translateY(-3px) rotate(-40deg);
+          transform: translateY(-3px) rotate(-40deg);
+}
+
+/*Media query for mobile (portrait)*/
+@media (max-width: 560px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+  .hamburger-icon {
+    right: 5%;
+  }
+}
+/*# sourceMappingURL=NavBar.css.map */
