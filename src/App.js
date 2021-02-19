@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
-import Axios from 'axios';
-import './App.css';
+import './css/App.scss';
 import WeatherData from './components/WeatherData';
 import NavBar from './components/NavBar';
 import Search from "./assets/search-icon.png";
@@ -28,66 +27,84 @@ function App() {
 
   const [units, setUnits] = useState('metric');
 
+  const [resStatus, setResStatus] = useState('OK');
+
   //Aux state used in toggleUnits
   const [memSearch, setMemSearch] = useState('montevideo');
 
-  const menuHandler = (e) => {
+  const menuHandler = () => {
     menuState === 'closed' ? toggleMenu('open') : toggleMenu('closed');
   }
 
-  const toggleUnits = (e) => {
+  const toggleUnits = () => {
     units === 'metric' ? setUnits('imperial') : setUnits('metric');
-    
   }
 
-  useEffect(() => getInfo(), [units]);
+  useEffect(() => getInfo(), [units]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => getInfo(), []);
+  useEffect(() => getInfo(), []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  //Shows error message if API response is 404
+  const errorHandler = () => {
+    setResStatus('ERROR');
+    setTimeout(() => {
+      setResStatus('OK');
+    }, 2200);
+  }
   
   const getInfo = () => {
-    Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${memSearch}&units=${units}&appid=${api_key}`).then(
-      res => {
-        console.log(res);
-        const newWeatherValues = {
-          temp: res.data.main.temp,
-          city: res.data.name,
-          country: res.data.sys.country,
-          wind: res.data.wind.speed,
-          rain: res.data.rain,
-          pressure: res.data.main.pressure,
-          humidity: res.data.main.humidity,
-          img: res.data.weather[0].icon,
-          desc: res.data.weather[0].description
-        }
-        updateWeatherValues(newWeatherValues);
-        updateSearchQuery('');
-      }
-    )
-    }
-  
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${memSearch}&units=${units}&appid=${api_key}`)
+    .then(
+      res => res.json())
+      .then( data => {
+          console.log(data);
+          const newWeatherValues = {
+            temp: data.main.temp,
+            city: data.name,
+            country: data.sys.country,
+            wind: data.wind.speed,
+            rain: data.rain,
+            pressure: data.main.pressure,
+            humidity: data.main.humidity,
+            img: data.weather[0].icon,
+            desc: data.weather[0].description
+          }
+          updateWeatherValues(newWeatherValues);
+          updateSearchQuery('');
+        })
+  }
 
   const searchboxHandler = (e) => {
     e.preventDefault();
-    Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=${units}&appid=${api_key}`).then(
-        res => {
-          console.log(res);
-          const newWeatherValues = {
-            temp: res.data.main.temp,
-            city: res.data.name,
-            country: res.data.sys.country,
-            wind: res.data.wind.speed,
-            rain: res.data.rain,
-            pressure: res.data.main.pressure,
-            humidity: res.data.main.humidity,
-            img: res.data.weather[0].icon,
-            desc: res.data.weather[0].description
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=${units}&appid=${api_key}`)
+    .then(
+        res => res.json())
+        .then( data => {
+          console.log(data.cod);
+          if (data.cod === 200){
+                console.log(data);
+                const newWeatherValues = {
+                  temp: data.main.temp,
+                  city: data.name,
+                  country: data.sys.country,
+                  wind: data.wind.speed,
+                  rain: data.rain,
+                  pressure: data.main.pressure,
+                  humidity: data.main.humidity,
+                  img: data.weather[0].icon,
+                  desc: data.weather[0].description
+                }
+                updateWeatherValues(newWeatherValues);
+                setMemSearch(searchQuery);
+                updateSearchQuery('');
           }
-          updateWeatherValues(newWeatherValues);
-          setMemSearch(searchQuery);
-          updateSearchQuery('');
-        }
-      )}
-  
+          else if (data.cod === '404'){ //manejo el error aca
+            console.log("Error!");
+            updateSearchQuery('');
+            errorHandler();
+          }
+        })
+  }
 
   return (
     <div className="App">
@@ -99,6 +116,7 @@ function App() {
           <input type="text" name="search" className="searchbox" value={searchQuery} placeholder="Find your city" />
           <button type="submit" className="btn"><img id="search-icon" src={Search} alt="search-icon" /></button>
         </form>
+          <p className={"search-error-"+resStatus}>Error: Can't find your city</p>
       </div>
     </div>
   );

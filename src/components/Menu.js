@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 
-import './Menu.css';
+import '../css/Menu.scss';
 
 const Menu = (props) => {
 
